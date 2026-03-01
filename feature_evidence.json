@@ -1,0 +1,146 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-design-and-apply-a-fresh-vibrant-visual-theme-inspired-by-farmers-markets-and-fresh-produce-using-warm-greens-earthy-neutrals-and-crisp-whites-as-the-color-palette-with-clean-sans-serif-typography-card-based-layouts-and-subtle-produce-inspired-accent-illustrations-apply-this-theme-consistently-across-all-pages",
+      "featureTitle": "Design and apply a fresh, vibrant visual theme inspired by farmers' markets and fresh produce — using warm greens, earthy neutrals, and crisp whites as the color palette, with clean sans-serif typography, card-based layouts, and subtle produce-inspired accent illustrations. Apply this theme consistently across all pages.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-homepage-with-a-hero-banner-a-featured-categories-section-and-a-featured-products-grid-showing-top-products-include-a-persistent-navigation-bar-with-the-app-name-logo-a-search-bar-and-a-cart-icon-showing-the-current-item-count",
+      "featureTitle": "Build a homepage with a hero banner, a featured categories section, and a 'Featured Products' grid showing top products. Include a persistent navigation bar with the app name/logo, a search bar, and a cart icon showing the current item count.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CategoryCard.tsx",
+        "frontend/src/components/HeroBanner.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-product-browse-catalog-page-that-displays-all-products-in-a-responsive-grid-support-filtering-by-category-and-sorting-by-price-low-to-high-high-to-low-each-product-card-must-show-name-image-price-and-an-add-to-cart-button",
+      "featureTitle": "Build a product browse/catalog page that displays all products in a responsive grid. Support filtering by category and sorting by price (low-to-high, high-to-low). Each product card must show name, image, price, and an 'Add to Cart' button.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CatalogPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-client-side-shopping-cart-stored-in-react-state-that-allows-users-to-add-products-increase-decrease-quantities-remove-items-and-view-a-running-subtotal-display-the-cart-as-a-slide-in-drawer-accessible-from-the-cart-icon-in-the-navbar",
+      "featureTitle": "Implement a client-side shopping cart (stored in React state) that allows users to add products, increase/decrease quantities, remove items, and view a running subtotal. Display the cart as a slide-in drawer accessible from the cart icon in the navbar.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CartDrawer.tsx",
+        "frontend/src/hooks/useCart.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-checkout-page-where-users-enter-their-name-delivery-address-and-a-delivery-time-preference-on-submission-call-the-backend-to-place-the-order-and-show-an-order-confirmation-screen-with-an-order-summary-and-estimated-delivery-message",
+      "featureTitle": "Build a checkout page where users enter their name, delivery address, and a delivery time preference. On submission, call the backend to place the order and show an order confirmation screen with an order summary and estimated delivery message.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CheckoutPage.tsx",
+        "frontend/src/pages/OrderConfirmationPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-simple-admin-orders-page-accessible-via-a-nav-link-that-fetches-and-displays-all-placed-orders-in-a-table-showing-order-id-buyer-name-delivery-address-item-count-total-amount-and-status",
+      "featureTitle": "Build a simple admin/orders page (accessible via a nav link) that fetches and displays all placed orders in a table, showing order ID, buyer name, delivery address, item count, total amount, and status.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/pages/OrdersPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-generated-app-hero-banner-image-and-category-product-placeholder-images-as-static-assets-from-frontend-public-assets-generated",
+      "featureTitle": "Render the generated app hero banner image and category/product placeholder images as static assets from frontend/public/assets/generated.",
+      "files": [
+        "frontend/src/components/HeroBanner.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

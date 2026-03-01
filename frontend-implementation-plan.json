@@ -1,0 +1,200 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Grocery Delivery App — Initial Build",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Apply a fresh, vibrant visual theme inspired by farmers' markets across all pages",
+      "acceptanceCriteria": [
+        "A consistent color palette of greens, earthy neutrals, and whites is used site-wide.",
+        "Typography is clean and readable across all screen sizes.",
+        "Cards are used to display products and categories consistently."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the global stylesheet to define CSS custom properties for the fresh produce theme palette (warm greens, earthy neutrals, crisp whites) and ensure base typography uses clean sans-serif fonts. Add any card base styles if not already covered by Tailwind."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with custom colors matching the farmers' market palette (greens, neutrals, whites) and configure any additional spacing or shadow utilities needed for card-based layouts."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build a homepage with hero banner, featured categories, featured products, and persistent navbar",
+      "acceptanceCriteria": [
+        "The homepage renders a hero banner with a tagline and a call-to-action button.",
+        "Category cards are displayed and clickable to filter products.",
+        "A featured products grid shows at least 6 products.",
+        "The navigation bar includes logo, search bar, and cart icon with item count badge."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create a persistent navigation bar component displaying the app logo (using frontend/public/assets/generated/logo-icon.dim_128x128.png), a search input bar, and a cart icon with a badge showing the current cart item count. Accept cartItemCount as a prop."
+        },
+        {
+          "path": "frontend/src/components/HeroBanner.tsx",
+          "operation": "create",
+          "description": "Create a hero banner component that displays the generated hero image (frontend/public/assets/generated/hero-banner.dim_1200x400.png), a welcoming tagline, and a call-to-action button styled consistently with the theme."
+        },
+        {
+          "path": "frontend/src/components/CategoryCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable category card component that displays a category name, an image, and handles onClick to filter products by category. Style using card-based layout patterns."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable product card component that displays product name, image, price, and an Add to Cart button. Accept product data and onAddToCart callback as props."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the homepage that composes HeroBanner, a featured categories section with CategoryCard components (using frontend/public/assets/generated/cat-fruits-veggies.dim_400x300.png, cat-dairy.dim_400x300.png, cat-bakery.dim_400x300.png, cat-beverages.dim_400x300.png, cat-snacks.dim_400x300.png for the five categories), and a featured products grid showing at least 6 products using ProductCard. Fetch products from the backend using getAllProducts and filter/slice for featured items."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire HomePage as the default route ('/'), render Navbar at the top of the app layout, and pass cart item count to Navbar. Set up React Router routes for HomePage and placeholder routes for other pages (catalog, checkout, orders)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build a product browse/catalog page with filtering, sorting, and responsive grid",
+      "acceptanceCriteria": [
+        "All products are displayed in a responsive grid (2–4 columns depending on screen size).",
+        "Category filter narrows visible products correctly.",
+        "Sort by price works in both ascending and descending order.",
+        "Each product card shows name, image placeholder, price, and Add to Cart button.",
+        "Adding a product to cart updates the cart icon count in the navbar."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "create",
+          "description": "Create a product catalog page that fetches all products using getAllProducts, displays them in a responsive grid using ProductCard, and provides UI controls for filtering by category and sorting by price (low-to-high, high-to-low). Accept an onAddToCart callback from parent state to update the cart."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the CatalogPage component at route '/catalog' and ensure the cart state is passed down so adding items updates the navbar badge count."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement a client-side shopping cart with a slide-in drawer for viewing and managing items",
+      "acceptanceCriteria": [
+        "The cart drawer opens when the cart icon is clicked.",
+        "Users can increase or decrease item quantity or remove items.",
+        "Subtotal updates in real-time as quantities change.",
+        "The cart icon badge reflects the total number of items in the cart."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "create",
+          "description": "Create a custom React hook that manages cart state (array of items with productId, name, price, quantity). Provide functions to add items, increase/decrease quantity, remove items, calculate subtotal, and get total item count. Return cart state and handlers."
+        },
+        {
+          "path": "frontend/src/components/CartDrawer.tsx",
+          "operation": "create",
+          "description": "Create a slide-in drawer component that displays the cart items, allows quantity adjustments and item removal, shows a running subtotal, and includes a Checkout button. Accept cart state and handlers as props. Use shadcn/ui Sheet or Drawer component if available."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Integrate the useCart hook at the App level, pass cart item count to Navbar, and wire the cart icon click to toggle the CartDrawer visibility. Ensure CartDrawer is rendered in the app layout and receives cart state and handlers."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build a checkout page for order submission and confirmation",
+      "acceptanceCriteria": [
+        "Checkout form includes name, delivery address (street, city, zip), and delivery time fields.",
+        "Form validates that all required fields are filled before submission.",
+        "On successful submission, the order is persisted in the backend.",
+        "A confirmation screen shows the order summary, total, and a friendly estimated delivery message.",
+        "The cart is cleared after a successful order."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CheckoutPage.tsx",
+          "operation": "create",
+          "description": "Create a checkout page with a form for buyer name, delivery address (street, city, zip), and delivery time preference. Validate required fields. On submit, call the backend placeOrder function with the cart items. On success, navigate to the confirmation screen and clear the cart using the cart handler."
+        },
+        {
+          "path": "frontend/src/pages/OrderConfirmationPage.tsx",
+          "operation": "create",
+          "description": "Create an order confirmation page that displays the order summary (items, total, delivery address) and a friendly estimated delivery message. Accept order data via route state or props."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register CheckoutPage at route '/checkout' and OrderConfirmationPage at route '/order-confirmation'. Pass cart state and clearCart handler to CheckoutPage so it can submit the order and clear the cart on success."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build an admin/orders page displaying all placed orders in a table",
+      "acceptanceCriteria": [
+        "The orders page fetches all orders from the backend.",
+        "Each order row displays id, buyer name, address, item count, total, and status.",
+        "The table is readable and styled consistently with the app theme."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OrdersPage.tsx",
+          "operation": "create",
+          "description": "Create an orders page that fetches all orders using getAllOrders and displays them in a table with columns for order ID, buyer name, delivery address, item count, total amount, and status. Style the table consistently with the app theme."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Add a navigation link to the Orders page ('/orders') in the Navbar so users can access the admin orders view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register OrdersPage at route '/orders' in the React Router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Render generated hero, category, and logo images as static assets",
+      "acceptanceCriteria": [
+        "Hero banner image is loaded from /assets/generated/hero-banner.png.",
+        "Category images are loaded from /assets/generated/ using their respective filenames.",
+        "No broken image links appear on any page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroBanner.tsx",
+          "operation": "modify",
+          "description": "Ensure the hero banner uses the generated image at frontend/public/assets/generated/hero-banner.dim_1200x400.png as its background or main visual."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Ensure category cards reference the correct generated images: frontend/public/assets/generated/cat-fruits-veggies.dim_400x300.png, cat-dairy.dim_400x300.png, cat-bakery.dim_400x300.png, cat-beverages.dim_400x300.png, and cat-snacks.dim_400x300.png for the five categories."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Ensure the app logo/icon in the Navbar uses the generated logo image at frontend/public/assets/generated/logo-icon.dim_128x128.png."
+        }
+      ]
+    }
+  ]
+}

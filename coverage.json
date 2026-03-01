@@ -1,0 +1,262 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T02:41:24.908Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 10,
+    "implemented": 7,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Design and apply a fresh, vibrant visual theme inspired by farmers' markets and fresh produce — using warm greens, earthy neutrals, and crisp whites as the color palette, with clean sans-serif typography, card-based layouts, and subtle produce-inspired accent illustrations. Apply this theme consistently across all pages.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Render the generated app hero banner image and category/product placeholder images as static assets from frontend/public/assets/generated.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeroBanner.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/Navbar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeroBanner.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/Navbar.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Create a backend data model and persistence layer for grocery products, including fields: id, name, category, description, price (in cents), imageUrl, stock quantity, and availability flag.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Seed the backend with at least 20 sample grocery products across at least 5 categories (e.g., Fruits & Vegetables, Dairy, Bakery, Beverages, Snacks).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Build a homepage with a hero banner, a featured categories section, and a 'Featured Products' grid showing top products. Include a persistent navigation bar with the app name/logo, a search bar, and a cart icon showing the current item count.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/components/HeroBanner.tsx",
+          "frontend/src/components/CategoryCard.tsx",
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/components/HeroBanner.tsx",
+          "frontend/src/components/CategoryCard.tsx",
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Build a product browse/catalog page that displays all products in a responsive grid. Support filtering by category and sorting by price (low-to-high, high-to-low). Each product card must show name, image, price, and an 'Add to Cart' button.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CatalogPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CatalogPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement a client-side shopping cart (stored in React state) that allows users to add products, increase/decrease quantities, remove items, and view a running subtotal. Display the cart as a slide-in drawer accessible from the cart icon in the navbar.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useCart.ts",
+          "frontend/src/components/CartDrawer.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useCart.ts",
+          "frontend/src/components/CartDrawer.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Create a backend order model and persistence layer. An order must include: orderId, buyerName, deliveryAddress, items (list of productId + quantity), totalAmount, status (pending/confirmed/delivered), and createdAt timestamp. Expose a function to place a new order and a function to retrieve all orders.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Build a checkout page where users enter their name, delivery address, and a delivery time preference. On submission, call the backend to place the order and show an order confirmation screen with an order summary and estimated delivery message.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CheckoutPage.tsx",
+          "frontend/src/pages/OrderConfirmationPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CheckoutPage.tsx",
+          "frontend/src/pages/OrderConfirmationPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Build a simple admin/orders page (accessible via a nav link) that fetches and displays all placed orders in a table, showing order ID, buyer name, delivery address, item count, total amount, and status.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OrdersPage.tsx",
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OrdersPage.tsx",
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/cat-bakery.dim_400x300.png",
+    "frontend/public/assets/generated/cat-beverages.dim_400x300.png",
+    "frontend/public/assets/generated/cat-dairy.dim_400x300.png",
+    "frontend/public/assets/generated/cat-fruits-veggies.dim_400x300.png",
+    "frontend/public/assets/generated/cat-snacks.dim_400x300.png",
+    "frontend/public/assets/generated/hero-banner.dim_1200x400.png",
+    "frontend/public/assets/generated/logo-icon.dim_128x128.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/CartDrawer.tsx",
+    "frontend/src/components/CategoryCard.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/HeroBanner.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useCart.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CatalogPage.tsx",
+    "frontend/src/pages/CheckoutPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/OrderConfirmationPage.tsx",
+    "frontend/src/pages/OrdersPage.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

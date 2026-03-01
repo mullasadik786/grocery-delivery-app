@@ -1,0 +1,190 @@
+{
+  "kind": "build_request",
+  "title": "Grocery Delivery App — Initial Build",
+  "projectName": "FreshCart",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Design and apply a fresh, vibrant visual theme inspired by farmers' markets and fresh produce — using warm greens, earthy neutrals, and crisp whites as the color palette, with clean sans-serif typography, card-based layouts, and subtle produce-inspired accent illustrations. Apply this theme consistently across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent color palette of greens, earthy neutrals, and whites is used site-wide.",
+        "Typography is clean and readable across all screen sizes.",
+        "Cards are used to display products and categories consistently."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a backend data model and persistence layer for grocery products, including fields: id, name, category, description, price (in cents), imageUrl, stock quantity, and availability flag.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Products are stored in stable backend state.",
+        "Each product has id, name, category, description, price, imageUrl, stock, and isAvailable fields.",
+        "Products can be queried by category or retrieved as a full list."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Seed the backend with at least 20 sample grocery products across at least 5 categories (e.g., Fruits & Vegetables, Dairy, Bakery, Beverages, Snacks).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 20 products exist in the backend on first deploy.",
+        "Products span at least 5 distinct categories.",
+        "Each product has valid price, stock, and category values."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a homepage with a hero banner, a featured categories section, and a 'Featured Products' grid showing top products. Include a persistent navigation bar with the app name/logo, a search bar, and a cart icon showing the current item count.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The homepage renders a hero banner with a tagline and a call-to-action button.",
+        "Category cards are displayed and clickable to filter products.",
+        "A featured products grid shows at least 6 products.",
+        "The navigation bar includes logo, search bar, and cart icon with item count badge."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build a product browse/catalog page that displays all products in a responsive grid. Support filtering by category and sorting by price (low-to-high, high-to-low). Each product card must show name, image, price, and an 'Add to Cart' button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All products are displayed in a responsive grid (2–4 columns depending on screen size).",
+        "Category filter narrows visible products correctly.",
+        "Sort by price works in both ascending and descending order.",
+        "Each product card shows name, image placeholder, price, and Add to Cart button.",
+        "Adding a product to cart updates the cart icon count in the navbar."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement a client-side shopping cart (stored in React state) that allows users to add products, increase/decrease quantities, remove items, and view a running subtotal. Display the cart as a slide-in drawer accessible from the cart icon in the navbar.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The cart drawer opens when the cart icon is clicked.",
+        "Users can increase or decrease item quantity or remove items.",
+        "Subtotal updates in real-time as quantities change.",
+        "The cart icon badge reflects the total number of items in the cart."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create a backend order model and persistence layer. An order must include: orderId, buyerName, deliveryAddress, items (list of productId + quantity), totalAmount, status (pending/confirmed/delivered), and createdAt timestamp. Expose a function to place a new order and a function to retrieve all orders.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Orders are stored in stable backend state.",
+        "Each order contains all required fields.",
+        "A placeOrder function accepts buyer info, address, and cart items and persists the order.",
+        "A getOrders function returns all stored orders."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build a checkout page where users enter their name, delivery address, and a delivery time preference. On submission, call the backend to place the order and show an order confirmation screen with an order summary and estimated delivery message.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Checkout form includes name, delivery address (street, city, zip), and delivery time fields.",
+        "Form validates that all required fields are filled before submission.",
+        "On successful submission, the order is persisted in the backend.",
+        "A confirmation screen shows the order summary, total, and a friendly estimated delivery message.",
+        "The cart is cleared after a successful order."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build a simple admin/orders page (accessible via a nav link) that fetches and displays all placed orders in a table, showing order ID, buyer name, delivery address, item count, total amount, and status.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The orders page fetches all orders from the backend.",
+        "Each order row displays id, buyer name, address, item count, total, and status.",
+        "The table is readable and styled consistently with the app theme."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Render the generated app hero banner image and category/product placeholder images as static assets from frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero banner image is loaded from /assets/generated/hero-banner.png.",
+        "Category images are loaded from /assets/generated/ using their respective filenames.",
+        "No broken image links appear on any page."
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must remain in a single Motoko actor in backend/main.mo.",
+    "Shopping cart state must be managed client-side (React state); do not persist cart to backend.",
+    "Do not use any external databases or cloud services.",
+    "Immutable frontend paths (hooks, main.tsx, ui components) must not be modified."
+  ],
+  "nonGoals": [
+    "User authentication or login (no Internet Identity in this build).",
+    "Real payment processing.",
+    "Real-time order tracking or WebSocket updates.",
+    "Admin product management UI (adding/editing products via UI).",
+    "Mobile native app (web only)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Bright, appetizing hero banner with an assortment of fresh colorful vegetables and fruits on a light background with warm green accents (hero-banner.dim_1200x400.png)",
+      "Category tile illustration for Fruits & Vegetables — a colorful flat-style produce basket (cat-fruits-veggies.dim_400x300.png)",
+      "Category tile illustration for Dairy — minimalist flat-style milk bottle and cheese (cat-dairy.dim_400x300.png)",
+      "Category tile illustration for Bakery — warm flat-style bread loaf and pastries (cat-bakery.dim_400x300.png)",
+      "Category tile illustration for Beverages — flat-style juice bottles and a coffee cup (cat-beverages.dim_400x300.png)",
+      "Category tile illustration for Snacks — flat-style chips bag and mixed snack items (cat-snacks.dim_400x300.png)",
+      "App logo mark — a simple, modern leaf-and-cart icon in green tones (logo-icon.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-01T02:41:24.905Z",
+  "summary": "The diff implements the majority of the requested requirements across backend and frontend. The backend Motoko actor includes product and order models with seeding, query functions, and order placement. The frontend includes all major pages (Home, Catalog, Checkout, Order Confirmation, Orders), a cart drawer, navbar, hero banner, category cards, product cards, and consistent theming. A few minor gaps are identified around the AC specifics for REQ-10 (hero banner image path naming convention) and the category card filter behavior on homepage (REQ-4 AC). Overall coverage is very high.",
+  "missing_requirements": [
+    {
+      "requirement": "Hero banner image must be loaded from /assets/generated/hero-banner.png per the AC, but the implementation uses /assets/generated/hero-banner.dim_1200x400.png",
+      "reason": "The acceptance criteria for REQ-10 specifies the path as '/assets/generated/hero-banner.png', but HeroBanner.tsx loads it from '/assets/generated/hero-banner.dim_1200x400.png'. These paths do not match.",
+      "evidence": [
+        "frontend/src/components/HeroBanner.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Category cards on the homepage are clickable to filter products in the featured products grid.",
+      "reason": "The HomePage defines an activeCategory state and filters featuredProducts by it, but handleCategoryClick navigates away to the catalog page instead of setting activeCategory. Clicking a category card never filters the homepage featured grid, so the AC 'Category cards are displayed and clickable to filter products' is not fully satisfied on the homepage.",
+      "evidence": [
+        "frontend/src/pages/HomePage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Delivery fee calculation (free delivery over $30, otherwise $2.99) in CartDrawer and CheckoutPage",
+      "reason": "No delivery fee or free-delivery threshold was specified in any requirement or acceptance criterion.",
+      "evidence": [
+        "frontend/src/components/CartDrawer.tsx",
+        "frontend/src/pages/CheckoutPage.tsx"
+      ]
+    },
+    {
+      "description": "Sort by name A-Z option in CatalogPage",
+      "reason": "REQ-5 only requests sorting by price (low-to-high and high-to-low). A name-based sort option was not requested.",
+      "evidence": [
+        "frontend/src/pages/CatalogPage.tsx"
+      ]
+    },
+    {
+      "description": "Separate in-page search input within the CatalogPage filter bar",
+      "reason": "REQ-5 specifies category filtering and price sorting only. An additional search field embedded in the catalog filters bar was not requested.",
+      "evidence": [
+        "frontend/src/pages/CatalogPage.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CartDrawer.tsx",
+    "frontend/src/components/CategoryCard.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/HeroBanner.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useCart.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CatalogPage.tsx",
+    "frontend/src/pages/CheckoutPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/OrderConfirmationPage.tsx",
+    "frontend/src/pages/OrdersPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

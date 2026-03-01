@@ -1,0 +1,19 @@
+{
+  "frontend/src/index.css": "Global stylesheet with a fresh farmers' market OKLCH color system — warm greens as primary, earthy neutrals as accent, crisp white backgrounds — plus Google Fonts import for Plus Jakarta Sans and Lora.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with custom font families (Plus Jakarta Sans, Lora), enhanced border radii, card shadow utilities, and fade-in/slide-in animations.",
+  "frontend/src/hooks/useCart.ts": "Custom React hook managing client-side cart state with add, increase/decrease quantity, remove, and clear operations, plus computed totalItems and subtotalCents.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations — getAllProducts, getProductsByCategory, getAllOrders, and placeOrder mutation.",
+  "frontend/src/lib/utils.ts": "Utility functions including cn (class merging), formatPrice (cents to dollar string), getCategoryImage (category to asset path mapping), and CATEGORIES constant.",
+  "frontend/src/components/Navbar.tsx": "Sticky navigation bar with FreshCart logo, desktop/mobile nav links (Home, Shop, Orders), search input, and cart icon with item count badge.",
+  "frontend/src/components/HeroBanner.tsx": "Full-width hero section with generated background image, gradient overlay, tagline, CTA button, and feature pills (free delivery, same-day, fresh produce).",
+  "frontend/src/components/CategoryCard.tsx": "Reusable category card with generated image, active/hover states, and click handler for category navigation.",
+  "frontend/src/components/ProductCard.tsx": "Product card displaying emoji placeholder, category tag, name, description, price, and Add to Cart button with in-cart state awareness.",
+  "frontend/src/components/CartDrawer.tsx": "Slide-in Sheet drawer showing cart items with quantity controls, item removal, delivery fee calculation, subtotal/total display, and checkout CTA.",
+  "frontend/src/components/Footer.tsx": "App footer with brand info, quick links, category list, copyright year, and caffeine.ai attribution with UTM tracking.",
+  "frontend/src/pages/HomePage.tsx": "Homepage composing HeroBanner, clickable category grid, featured products grid (up to 8 items), and a value propositions banner.",
+  "frontend/src/pages/CatalogPage.tsx": "Full product catalog with category filter pills, sort dropdown, search filtering, responsive 2–4 column grid, and empty state handling.",
+  "frontend/src/pages/CheckoutPage.tsx": "Multi-section checkout form with buyer name, delivery address (street/city/zip), delivery time slot selection, inline validation, order summary sidebar, and backend placeOrder mutation.",
+  "frontend/src/pages/OrderConfirmationPage.tsx": "Post-order confirmation screen showing success animation, order ID, delivery details, itemized summary, total, and navigation actions.",
+  "frontend/src/pages/OrdersPage.tsx": "Admin orders table fetching all backend orders, displaying ID, buyer, address, item count, total, status badge, and date with refresh capability.",
+  "frontend/src/App.tsx": "Root app component managing page routing state, cart state via useCart, search, cart drawer visibility, and order confirmation flow — renders Navbar, page content, Footer, CartDrawer, and Toaster."
+}
